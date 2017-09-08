@@ -15,7 +15,7 @@ let sign = md5.digest('hex');
 sign = sign.toUpperCase();
 
 // HTTP/HTTPS proxy to connect to
-var proxy = process.env.http_proxy || 'http://10.60.20.115:7789';
+var proxy = process.env.http_proxy || 'http://139.224.18.1:8088';
 console.log('using proxy server %j', proxy);
 
 // HTTPS endpoint for the proxy to connect to
