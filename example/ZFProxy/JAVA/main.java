@@ -22,11 +22,11 @@ public class TestDynamic {
 
     public static void main(String[] args) throws IOException {
         final String url = "https://www.baidu.com/";
-        //String url ="http://1212.ip138.com/ic.asp";
-        //String url = "http://www.hao123.com/";
+        //final String url ="http://1212.ip138.com/ic.asp";
+        //final String url = "http://www.hao123.com/";
 
-        final String ip = "10.60.10.71";//这里以正式服务器ip地址为准
-        final int port = 7789;//这里以正式服务器端口地址为准
+        final String ip = "139.224.18.1";//这里以正式服务器ip地址为准
+        final int port = 8088;//这里以正式服务器端口地址为准
 
         int timestamp = (int) (new Date().getTime()/1000);
         //以下订单号，secret参数 须自行改动
