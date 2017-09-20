@@ -17,7 +17,7 @@ sign = sign.toUpperCase();
 
 let options = {
     url:url,
-    proxy: "http://139.224.18.1:8088",
+    proxy: "http://forward.xdaili.cn:80",
     headers:{
       'Proxy-Authorization':'sign='+sign+'&orderno='+orderno+"&timestamp="+timestamp
     }
