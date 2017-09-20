@@ -6,8 +6,8 @@ const Https = require('https');
 
 let timestamp = parseInt(new Date().getTime()/1000);
 let url = 'http://www.baidu.com/';
-let orderno = 'ZF2017974824isWRfK';
-let secret = 'cb65091847ad42f5b8a98f832338e94c';
+let orderno = 'ZF20179xxxxxxxxx';
+let secret = 'cb65091847ad42fxxxxxxx';
 
 let plantext = 'orderno='+orderno+',secret='+secret+',timestamp='+timestamp;
 let md5 = crypto.createHash('md5');
