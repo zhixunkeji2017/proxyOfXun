@@ -2,15 +2,15 @@ import sys
 import time
 import hashlib
 import requests
-import grequests
-
+# import grequests
+from lxml import etree
 
 _version = sys.version_info
 
 is_python3 = (_version[0] == 3)
 
-orderno = "ZF20179xxxxxxxx"
-secret = "bbaee8bad1xxxxxxxxx"
+orderno = "ZF20179xxxxxxxxx"
+secret = "3f9c2ecac7xxxxxxxxxxxxxxxx"
 
 ip = "forward.xdaili.cn"
 port = "80"
@@ -32,18 +32,14 @@ auth = "sign=" + sign + "&" + "orderno=" + orderno + "&" + "timestamp=" + timest
 print(auth)
 proxy = {"http": "http://" + ip_port, "https": "https://" + ip_port}
 headers = {"Proxy-Authorization": auth}
-r = requests.get("https://www.baidu.com", headers=headers, proxies=proxy, verify=False)
+r = requests.get("https://www.tianyancha.com/company/2602017365", headers=headers, proxies=proxy, verify=False,allow_redirects=False)
 print(r.status_code)
 print(r.content)
-print(r.text)
-
-while True:
-    urls = ["http://nba.hupu.com"] * 10
-    # urls = ["https://www.baidu.com"] * 10
-    print(urls)
-    start = time.time()
-    r = (grequests.get(u, proxies=proxy, headers=headers, timeout=30, verify=False, allow_redirects=False) for u in urls)
-    r_list = grequests.map(r)
-    stop = time.time()
-    print(r_list)
-    print(stop - start)
+print(r.status_code)
+if r.status_code == 302:
+    loc = r.headers['Location']
+    url_f = "https://www.tianyancha.com" + loc
+    print(loc)
+    r = requests.get(url_f, headers=headers, proxies=proxy, verify=False, allow_redirects=False)
+    print(r.status_code)
+    print(r.text)
