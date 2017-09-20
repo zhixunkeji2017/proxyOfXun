@@ -9,11 +9,11 @@ _version = sys.version_info
 
 is_python3 = (_version[0] == 3)
 
-orderno = "ZF2017985116rTEkIY"
-secret = "bbaee8bad1d44cee9621474cf8c0de96"
+orderno = "ZF20179xxxxxxxx"
+secret = "bbaee8bad1xxxxxxxxx"
 
-ip = "139.224.18.1"
-port = "8088"
+ip = "forward.xdaili.cn"
+port = "80"
 
 ip_port = ip + ":" + port
 
