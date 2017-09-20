@@ -5,8 +5,8 @@ var https = require('https');
 var HttpsProxyAgent = require('https-proxy-agent'); //第三方包,请安装
 
 let timestamp = parseInt(new Date().getTime()/1000);
-let orderno = 'ZF2017974824isWRfK';
-let secret = 'cb65091847ad42f5b8a98f832338e94c';
+let orderno = 'ZF201797xxxxxxx';
+let secret = 'cb65091847ad4xxxxxxxxxxxx';
 
 let plantext = 'orderno='+orderno+',secret='+secret+',timestamp='+timestamp;
 let md5 = crypto.createHash('md5');
@@ -15,7 +15,7 @@ let sign = md5.digest('hex');
 sign = sign.toUpperCase();
 
 // HTTP/HTTPS proxy to connect to
-var proxy = process.env.http_proxy || 'http://139.224.18.1:8088';
+var proxy = process.env.http_proxy || 'http://forward.xdaili.cn:80';
 console.log('using proxy server %j', proxy);
 
 // HTTPS endpoint for the proxy to connect to
