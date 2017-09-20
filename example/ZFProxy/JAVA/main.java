@@ -25,12 +25,12 @@ public class TestDynamic {
         //final String url ="http://1212.ip138.com/ic.asp";
         //final String url = "http://www.hao123.com/";
 
-        final String ip = "139.224.18.1";//这里以正式服务器ip地址为准
-        final int port = 8088;//这里以正式服务器端口地址为准
+        final String ip = "forward.xdaili.cn";//这里以正式服务器ip地址为准
+        final int port = 80;//这里以正式服务器端口地址为准
 
         int timestamp = (int) (new Date().getTime()/1000);
         //以下订单号，secret参数 须自行改动
-        final String authHeader = authHeader("ZF2017974824isWRfK", "cb65091847ad42f5b8a98f832338e94c", timestamp);
+        final String authHeader = authHeader("ZF2017974xxxxxxx", "cb65091847adxxxxxxxxxxxx", timestamp);
         ExecutorService thread = Executors.newFixedThreadPool(1);
 
         for (int i=0;i<1;i++) {
