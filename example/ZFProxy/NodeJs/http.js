@@ -1,8 +1,6 @@
 
 const crypto = require('crypto');
 const request = require('request');
-const Tls = require('tls');
-const Https = require('https');
 
 let timestamp = parseInt(new Date().getTime()/1000);
 let url = 'http://www.baidu.com/';
