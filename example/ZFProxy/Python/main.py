@@ -32,7 +32,7 @@ auth = "sign=" + sign + "&" + "orderno=" + orderno + "&" + "timestamp=" + timest
 print(auth)
 proxy = {"http": "http://" + ip_port, "https": "https://" + ip_port}
 headers = {"Proxy-Authorization": auth}
-r = requests.get("http://www.baidu.com", headers=headers, proxies=proxy, verify=False,allow_redirects=False)
+r = requests.get("https://www.tianyancha.com/company/2602017365", headers=headers, proxies=proxy, verify=False,allow_redirects=False)
 print(r.status_code)
 print(r.content)
 print(r.status_code)
