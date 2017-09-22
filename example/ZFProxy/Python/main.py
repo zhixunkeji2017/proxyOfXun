@@ -36,7 +36,7 @@ r = requests.get("https://www.tianyancha.com/company/2602017365", headers=header
 print(r.status_code)
 print(r.content)
 print(r.status_code)
-if r.status_code == 302:
+if r.status_code == 302 or r.status_code == 301 :
     loc = r.headers['Location']
     url_f = "https://www.tianyancha.com" + loc
     print(loc)
