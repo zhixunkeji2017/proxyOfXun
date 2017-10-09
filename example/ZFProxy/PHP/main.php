@@ -26,7 +26,7 @@
 	    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 	    curl_setopt($ch, CURLOPT_URL, $url);
 	    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-     	curl_setopt($ch, CURLOPT_PROXY, "139.224.18.1:8088"); 
+     	curl_setopt($ch, CURLOPT_PROXY, "forward.xdaili.cn:80"); 
 	    curl_setopt($ch, CURLOPT_TIMEOUT,120);
 		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,6);
 	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
