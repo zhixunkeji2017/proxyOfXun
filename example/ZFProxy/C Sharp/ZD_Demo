@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ZD_Demo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string _orderNo = string.Empty;     //订单号
+            string _secret = string.Empty;         //secret
+            string _requestRes = ZDHelper.GetIpRes(_orderNo,_secret);
+            Console.WriteLine(_requestRes);
+            Console.Read();
+        }
+    }
+}
