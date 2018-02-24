@@ -29,6 +29,7 @@
         url: 'http://api.xdaili.cn/xdaili-api/spider/applyChannels',
         json: true,
         headers: {
+            'Accept':'*/*',
             'timestamp': timestamp,
             'token':token,
             'spiderId':'2e086cc149f24dccb471f1d122db7deb'//讯代理个人信息获取唯一标志码
@@ -64,6 +65,7 @@
         url: 'http://api.xdaili.cn/xdaili-api/spider/logOut',
         json: true,
         headers: {
+            'Accept':'*/*',
             'timestamp': timestamp,
             'token':token,
             'spiderId':'2e086cc149f24dccb471f1d122db7deb'//讯代理个人信息获取唯一标志码
@@ -87,6 +89,7 @@
         url: 'http://api.xdaili.cn/xdaili-api/spider/logOutAll',
         json: true,
         headers: {
+            'Accept':'*/*',
             'timestamp': timestamp,
             'token':token,
             'spiderId':'2e086cc149f24dccb471f1d122db7deb'//讯代理个人信息获取唯一标志码
