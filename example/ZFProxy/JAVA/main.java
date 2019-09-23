@@ -20,7 +20,7 @@ public class TestDynamic {
 	}
 
 	public static void main(String[] args) throws IOException {
-        final String url = "http://200019.ip138.com/";
+        final String url = "http://2000019.ip138.com";
 
 		final String ip = "forward.xdaili.cn";//这里以正式服务器ip地址为准
 		final int port = 80;//这里以正式服务器端口地址为准
