@@ -30,7 +30,7 @@ def gen_token(spiderId, secret, p, timestamp):
     print(token)
     return token
 
-#生成时间戳(毫秒级别)
+#生成时间戳(秒级别)
 def getTime():
     t = time.time()
     timestamp = int(t)
