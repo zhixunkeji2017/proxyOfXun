@@ -1,23 +1,24 @@
-    # -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
+import requests
+import mytoken
 
-    import requests
+# 登录后在个人中心获取
+spiderId = "8ea1baef1c3047ed83182b4a0dsba5c9"
+secret = "0f5c79113f2f43fbae613d82daac8297"
 
-    from mytoken import gen_token
+timestamp = mytoken.getTime();
+token = mytoken.gen_token(spiderId, secret, "", timestamp)
+logoutall_headers = mytoken.genHeaders(token, spiderId, timestamp);
 
-    spiderId = "7aff9cc6932d495484e9be4cd20cc158" //登录后在个人中心获取
-    secret = "915bd197de454c71a23b2589b4b6d6b5"   //登录后在个人中心获取
+try:
+    r = requests.get("http://api.xdaili.cn/xdaili-api/spider/logOutAll",
+            headers=logoutall_headers, timeout=120)
+except Exception as err_info:
+    r = None
+    print(err_info)
 
-    logoutall_headers = gen_token(spiderId, secret)
-
-    try:
-        r = requests.get("http://api.xdaili.cn/xdaili-api/spider/logOutAll",
-                headers=logoutall_headers, timeout=120)
-    except Exception as err_info:
-        r = None
-        print(err_info)
-
-    if r is not None:
-        print(r.status_code)
-        if r.status_code == 200:
-            print(r.content)
-                          
+if r is not None:
+    print(r.status_code)
+    if r.status_code == 200:
+        print(r.content)
+        print(r.json())
