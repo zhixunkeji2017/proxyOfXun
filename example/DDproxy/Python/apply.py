@@ -1,22 +1,24 @@
-   
-    # -*- coding:utf-8 -*-
+# -*- coding:utf-8 -*-
 
-    import requests
+import requests
+import mytoken
 
-    from mytoken import gen_token
+#登录后在个人中心获取
+spiderId = "8ea1baef1c3037ed83182b4a0d7ba5c9"
+secret = "0f5c79113f2f43fbad613382daac8297"
 
-    spiderId = "7aff9cc6932d495484e9be4cd20cc158" //登录后在个人中心获取
-    secret = "915bd197de454c71a23b2589b4b6d6b5"   //登录后在个人中心获取
+"""
+申请拨号服务器
+"""
+def applyChannels():
+    params = {"count": 20}
 
-    """
-    申请拨号服务器
-    """
-    p = {"count": 20}
-    apply_headers = gen_token(spiderId, secret, p)
+    timestamp = mytoken.getTime();
+    token = mytoken.gen_token(spiderId, secret, params, timestamp)
+    apply_headers = mytoken.genHeaders(token, spiderId, timestamp);
 
     try:
-        r = requests.get("http://api.xdaili.cn/xdaili-api/spider/applyChannels",
-                headers=apply_headers, json=p, timeout=120)
+        r = requests.get("http://api.xdaili.cn/xdaili-api/spider/applyChannels", headers=apply_headers, json=params, timeout=120)
     except Exception as err_info:
         r = None
         print(err_info)
@@ -32,15 +34,14 @@
                     print(one)
                     print(one["proxyId"])
                     print(one["orderno"])
-                    
-    """
-    动态拨号
-    """
-    dial_headers = gen_token(spiderId, secret)
-    url = "http://api.xdaili.cn/xdaili-api/privateProxy/getDynamicIP" + \
-            "/" + one["orderno"] + "/" + one["proxyId"]
+                    getDynamicIP(one["orderno"], one["proxyId"])
+"""
+动态拨号
+"""
+def getDynamicIP(orderno, proxyId):
+    url = "http://api.xdaili.cn/xdaili-api/privateProxy/getDynamicIP" + "/" + orderno + "/" + proxyId
     try:
-        r = requests.get(url, headers=dial_headers, timeout=120)
+        r = requests.get(url, timeout=120)
     except Exception as err_info:
         r = None
         print(err_info)
@@ -54,6 +55,6 @@
             if result["ERRORCODE"] == "0" and result["RESULT"]:
                 print(result["RESULT"]["wanIp"])
                 print(result["RESULT"]["proxyport"])
-                
-                
-                
+
+
+applyChannels()
