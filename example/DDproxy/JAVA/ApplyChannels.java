@@ -52,7 +52,7 @@
     			paramStr.append(key).append(map.get(key));
     		}
     		// 生成sign
-    		String sign = new String(Hex.encodeHex(DigestUtils.sha(paramStr.toString()))).toUpperCase();
+    		String sign = new String(Hex.encodeHex(DigestUtils.sha1(paramStr.toString()))).toUpperCase();
     		// 生成token
     		String token = org.apache.commons.codec.digest.DigestUtils.md5Hex(timestamp + secret + sign);
     		return token;
